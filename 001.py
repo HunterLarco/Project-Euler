@@ -4,16 +4,15 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 Find the sum of all the multiples of 3 or 5 below 1000.
 """
 
+def is_multiple_of_any(N, candidates):
+  """ Returns true if N is a multiple of any of the provided candidates """
+  for candidate in candidates:
+    if N % candidate == 0:
+      return True
+  return False
+
 def sum_of_multiples_below_n(N, multiples=()):
-  accumulator = 0
-  for i in range(N):
-    for multiple in multiples:
-      if i % multiple == 0:
-        break
-    else:
-      continue
-    accumulator += i
-  return accumulator
+  return sum(filter(lambda n: is_multiple_of_any(n, multiples), range(N)))
 
 def main():
   print(sum_of_multiples_below_n(1000, multiples=(3, 5)))
