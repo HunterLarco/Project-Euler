@@ -36,7 +36,5 @@ def first_triangle_with_divisors(divisor_count):
 def main():
   print(first_triangle_with_divisors(500))
 
-# NOT 34359607296
-
 if __name__ == '__main__':
   main()
