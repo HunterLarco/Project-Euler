@@ -6,11 +6,15 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 a
 Evaluate the sum of all the amicable numbers under 10000.
 """
 
+from math import ceil
+
 def divisor_sum(N):
   accumulator = 1
-  for i in range(2, int(N**0.5)):
+  for i in range(2, int(N**0.5) + 1):
     if N % i == 0:
       accumulator += i + N//i
+  # Correct perfect squares
+  if N**0.5 % 1 == 0: accumulator -= int(N**0.5)
   return accumulator
 
 def is_amicable_number(N):
